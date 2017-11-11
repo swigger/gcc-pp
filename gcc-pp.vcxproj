@@ -29,12 +29,13 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{458c97b6-9738-414b-80ca-2c49d09fbbeb}</ProjectGuid>
     <Keyword>Linux</Keyword>
-    <RootNamespace>cprep</RootNamespace>
+    <RootNamespace>gcc-pp</RootNamespace>
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <ApplicationType>Linux</ApplicationType>
     <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
     <TargetLinuxPlatform>Generic</TargetLinuxPlatform>
     <LinuxProjectType>{D51BCBC9-82E9-4017-911E-C93873C4EA2B}</LinuxProjectType>
+    <ProjectName>gcc-pp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
@@ -83,7 +84,6 @@
     <ClInclude Include="libcpp\ucnid.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cprep\main.cpp" />
     <ClCompile Include="libcpp\charset.cpp" />
     <ClCompile Include="libcpp\directives-only.cpp" />
     <ClCompile Include="libcpp\directives.cpp" />
@@ -102,10 +102,12 @@
     <ClCompile Include="libcpp\macro.cpp" />
     <ClCompile Include="libcpp\md5.c" />
     <ClCompile Include="libcpp\mkdeps.cpp" />
+    <ClCompile Include="libcpp\obstack.cpp" />
     <ClCompile Include="libcpp\pch.cpp" />
     <ClCompile Include="libcpp\safe-ctype.c" />
     <ClCompile Include="libcpp\symtab.cpp" />
     <ClCompile Include="libcpp\traditional.cpp" />
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

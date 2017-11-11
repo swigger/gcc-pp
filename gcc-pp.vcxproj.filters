@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="cprep">
-      <UniqueIdentifier>{9b5935cf-d821-4b78-9f6d-df3403eb8372}</UniqueIdentifier>
-    </Filter>
     <Filter Include="libcpp">
       <UniqueIdentifier>{edfa8511-4106-4944-93f8-fa1281f5d822}</UniqueIdentifier>
     </Filter>
     <Filter Include="libcpp\include">
       <UniqueIdentifier>{f50678ee-69d4-425b-b0ab-4555444e53fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{9b5935cf-d821-4b78-9f6d-df3403eb8372}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -110,9 +110,6 @@
     <ClCompile Include="libcpp\traditional.cpp">
       <Filter>libcpp</Filter>
     </ClCompile>
-    <ClCompile Include="cprep\main.cpp">
-      <Filter>cprep</Filter>
-    </ClCompile>
     <ClCompile Include="libcpp\libiberty.cpp">
       <Filter>libcpp</Filter>
     </ClCompile>
@@ -132,6 +129,12 @@
       <Filter>libcpp</Filter>
     </ClCompile>
     <ClCompile Include="libcpp\lbasename.cpp">
+      <Filter>libcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="libcpp\obstack.cpp">
       <Filter>libcpp</Filter>
     </ClCompile>
   </ItemGroup>
