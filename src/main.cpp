@@ -35,6 +35,19 @@ int main(int argc, const char * argv[])
 	printf("%p\n", rd);
 	cpp_callbacks * cb = cpp_get_callbacks(rd);
 	cb->error = error_xx;
+	
+	const char * dirs[] = {
+		"/usr/include",
+		0
+	};
+	cpp_dir * head = 0, **cur = &head;
+	for (uint32_t i=0; dirs[i]; ++i)
+	{
+		(*cur) = XCNEW(cpp_dir);
+		(*cur)->name = (char*) dirs[i];
+		cur = & (*cur)->next;
+	}
+	cpp_set_include_chains(rd, head, head,  false);
 
 	cpp_read_main_file(rd, __FILE__);
 	for (;;)
