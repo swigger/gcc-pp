@@ -65,6 +65,7 @@
     <IncludePath>libcpp;libcpp/include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClInclude Include="gcc-c.h" />
     <ClInclude Include="libcpp\ansidecl.h" />
     <ClInclude Include="libcpp\config.h" />
     <ClInclude Include="libcpp\filenames.h" />

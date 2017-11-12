@@ -63,6 +63,7 @@
     <ClInclude Include="libcpp\include\symtab.h">
       <Filter>libcpp\include</Filter>
     </ClInclude>
+    <ClInclude Include="gcc-c.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libcpp\charset.cpp">

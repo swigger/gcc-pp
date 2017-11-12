@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <unistd.h>
 
 #include "config.h"
 #include "system.h"
@@ -40,11 +41,16 @@ int main(int argc, const char * argv[])
 	g_linetbl = line_table;
 
 	cpp_reader * rd = cpp_create_reader(CLK_CXX1Z, 0, line_table);
-	printf("%p\n", rd);
+	//printf("reader is %p\n", rd);
 	cpp_callbacks * cb = cpp_get_callbacks(rd);
 	cb->error = error_xx;
-	
+	//cpp_init_builtins(rd, 0);
+
 	const char * dirs[] = {
+		"/usr/lib/gcc/x86_64-linux-gnu/5/include",
+		"/usr/local/include",
+		"/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed",
+		"/usr/include/x86_64-linux-gnu",
 		"/usr/include",
 		0
 	};
@@ -56,12 +62,23 @@ int main(int argc, const char * argv[])
 		cur = & (*cur)->next;
 	}
 	cpp_set_include_chains(rd, head, head,  false);
-
 	cpp_read_main_file(rd, __FILE__);
+	cpp_push_default_include(rd, "/home/xungeng/projects/gcc-pp/gcc-c.h");
 	for (;;)
 	{
 		const cpp_token * tk = cpp_get_token(rd);
-		printf("%s \n", tk->val.str.text);
+		if (!tk) break;
+		switch (tk->type)
+		{
+		case CPP_PADDING:
+			printf(" ");
+			break;
+		default:
+			cpp_output_token(tk, stdout);
+			printf(" ");
+			break;
+		}
+		//printf("%s \n", tk->val.str.text);
 		fflush(stdout);
 	}
 
