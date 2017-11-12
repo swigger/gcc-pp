@@ -1,3 +1,8 @@
+#define A(x,y) x-y
+#if A(3,1)
+void foo();
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
